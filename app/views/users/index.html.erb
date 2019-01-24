@@ -1,2 +1,27 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+
+<h2>All Users</h2>
+<table>
+  <tr>
+    <th>First Name</th>
+
+    
+    <th>Last Name</th>
+
+    <th>Email</th>
+
+
+  </tr>
+
+  <% @user.each do |u| %>
+  <tr>
+    <td><%= u.first_name %></td>
+    <td><%= u.last_name %></td>
+    <td><%= u.email %></td>
+
+
+
+
+    <% end %>
+
+  </tr>
+</table>

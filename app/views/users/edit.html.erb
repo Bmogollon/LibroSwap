@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Change Your Profile </h1>
+<%= form_for @user do |f| %>
+
+<label>First Name:</label><br>
+ <%= f.text_field :first_name %><br>
+
+ <label>Last Name:</label><br>
+  <%= f.text_field :last_name %><br>
+
+<label>Email:</label><br>
+ <%= f.email_field :email %><br>
+
+
+   <p>
+   <%= f.submit "Save Changes" %>
+   </p>
+   <%end%>
