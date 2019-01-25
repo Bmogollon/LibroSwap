@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true, :uniqueness => { :case_sensitive => false }
   validates :password, presence: true
+    has_one_attached :avatar
   has_secure_password
 
 end

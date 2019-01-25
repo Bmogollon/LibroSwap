@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+   .st{
+     display: block;
+     margin:auto;
+     border:black 1px dotted;
+     box-shadow: rgba(0,0,0,0.5) 30px 33px 20px;
+     background-image: linear-gradient(white, transparent, transparent);
+     width: 300px;
+     height: 400px;
+     margin:0;
+     position: relative;
+     top:30%;
+     left:30%;
+
+   }
+   .form{
+     text-align:center;
+   }
+
+
+img{
+  height: 250px;
+  width: 250px;
+}

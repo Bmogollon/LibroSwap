@@ -13,7 +13,11 @@ class UsersController < ApplicationController
     end
 
     def index
+      if logged_in?
         @user = User.all
+      else
+    redirect_to root_path
+  end
     end
 
     def show
@@ -40,6 +44,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar)
     end
   end
