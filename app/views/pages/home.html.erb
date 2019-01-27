@@ -1,4 +1,11 @@
+<% if logged_in? %>
 <h1>IT BE LIKE THAT</h1>
 <p>YEEEEEEEEEEEEERRRRR</p>
-
 <img src="assets/ll.png">
+
+<% else %>
+
+<h1>YOU ARE NOT LOG IN</h1>
+
+<%= link_to 'Log in', login_path %>
+<%end%>

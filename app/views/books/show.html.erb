@@ -1,0 +1,13 @@
+<h1>My Books</h1>
+
+
+
+
+      <p><%= @book.author %></p><hr>
+      <p><%= @book.title %></p><hr>
+      <p><%= @book.description %></p><hr>
+    <%= image_tag(@book.avatar) if @book.avatar.attached? %>
+
+
+
+    <%= link_to 'Edit Book', edit_book_path %>

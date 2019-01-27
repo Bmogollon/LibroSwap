@@ -1,4 +1,9 @@
+
 <%= image_tag(@user.avatar) if @user.avatar.attached?%>
+
+
+
+
 <div class="st">
 
 
@@ -9,13 +14,50 @@
 <h3>Last Name: <%= @user.last_name %></h3> <br>
 <h3>Email: <%= @user.email %></h3><br>
 
-
+<% if @user == current_user %>
 
 <%= link_to 'Edit Profile', edit_user_path %>
-
-
 <%= link_to 'Log Out', logout_path, method: :delete %>
+<%= link_to 'create book', new_book_path %>
+<%end%>
+</div>
 
+<hr>
+<hr>
+<div class="main-grid">
+<% if @user == current_user %>
 
+<% @user_books.each do |b| %>
+<div class="prof-grid">
+  <p><%= b.title %></p>
+  <p><%= b.author %></p>
+  <%=b.description.truncate(10)%> <br>
+
+  <p><%= image_tag(b.avatar) if b.avatar.attached?%></p>
+  <p><a href="/books/<%=b.id%>">VIEW BOOK</a></p>
+
+  <% end %>
+</div>
 
 </div>
+
+
+
+
+
+<% else %>
+<div class="main-grid">
+<% books = Book.where(user_id: @user.id)%>
+<% books.each do |b| %>
+<div class="prof-grid">
+  <p><%= b.title %></p>
+  <p><%= b.author %></p>
+  <%=b.description.truncate(10)%> <br>
+
+  <p><%= image_tag(b.avatar) if b.avatar.attached?%></p>
+  <p><a href="/books/<%=b.id%>">VIEW BOOK</a></p>
+</div>
+</div>
+  <% end %>
+
+<%end%>

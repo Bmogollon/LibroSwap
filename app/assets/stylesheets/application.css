@@ -13,19 +13,21 @@
  *= require_tree .
  *= require_self
  */
-
+body{
+  background:rgb(196, 232, 230);
+}
    .st{
      display: block;
      margin:auto;
      border:black 1px dotted;
      box-shadow: rgba(0,0,0,0.5) 30px 33px 20px;
      background-image: linear-gradient(white, transparent, transparent);
-     width: 300px;
-     height: 400px;
+     width: 310px;
+     height: 350px;
      margin:0;
      position: relative;
-     top:30%;
      left:30%;
+       transform: translate(40%, -50%);
 
    }
    .form{
@@ -36,4 +38,14 @@
 img{
   height: 250px;
   width: 250px;
+}
+
+.main-grid{
+  display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 4px;
+    grid-gap: 5%;
+}
+.prof-grid{
+  border:black 1px dotted;
 }
