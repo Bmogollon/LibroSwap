@@ -1,65 +1,87 @@
+<div id="wrapper">
+    <div id="container">
 
-<%= image_tag(@user.avatar) if @user.avatar.attached?%>
+        <section class="open-book">
+            <header>
+                <h1>Libro Swap</h1>
+                <h6>Bonny Mogollon</h6>
+            </header>
+            <article>
+                <h2 class="chapter-title">LibroSwap</h2>
+
+
+                <%= image_tag(@user.avatar) if @user.avatar.attached?%>
 
 
 
 
-<div class="st">
+                <h1> Welcome <%= @user.first_name %> </h1>
 
 
-<h1> Welcome <%= @user.first_name %> </h1>
+                <h3>First Name: <%= @user.first_name %></h3> <br>
+                <h3>Last Name: <%= @user.last_name %></h3> <br>
+                <h3>Email: <%= @user.email %></h3><br>
+
+                <% if @user == current_user %>
+
+                <%= link_to 'Edit Profile', edit_user_path %>
+                <%= link_to 'Log Out', logout_path, method: :delete %>
+                <%= link_to 'create book', new_book_path %>
+                <%= link_to 'View Chats', user_chats_path(current_user) %>
+
+                <%end%>
 
 
-<h3>First Name: <%= @user.first_name %></h3> <br>
-<h3>Last Name: <%= @user.last_name %></h3> <br>
-<h3>Email: <%= @user.email %></h3><br>
+                <hr>
+                <hr>
+                <% if @user == current_user %>
 
-<% if @user == current_user %>
+                <% @user_books.each do |b| %>
+                <div class="main-grid">
+                    Book: <%= b.title %><br>
+                    Author:  <%= b.author %><br>
+                    Description:  <%=b.description.truncate(10)%> <br>
+                    <div class="img">
+                      <%= image_tag(b.avatar) if b.avatar.attached?%>
 
-<%= link_to 'Edit Profile', edit_user_path %>
-<%= link_to 'Log Out', logout_path, method: :delete %>
-<%= link_to 'create book', new_book_path %>
-<%= link_to 'View Chats', user_chats_path(current_user) %>
+                    </div>
 
-<%end%>
+                    <a href="/books/<%=b.id%>">VIEW BOOK</a>
+
+                  </div>
+                <% end %>
+
+
+
+
+
+
+                <% else %>
+                <% books = Book.where(user_id: @user.id)%>
+
+                  <% books.each do |b| %>
+                  <div class="main-grid">
+                    Book:  <%= b.title %><br>
+                    Author:  <%= b.author %><br>
+                    Description:  <%=b.description.truncate(10)%> <br>
+
+                    <%= image_tag(b.avatar) if b.avatar.attached?%>
+                    <a href="/books/<%=b.id%>">VIEW BOOK</a>
+
+                  </div>
+                <% end %>
+                <%end%>
+
+
+              </article>
+
+            <footer>
+                <ol id="page-numbers">
+                    <li>1</li>
+                    <li>2</li>
+                </ol>
+            </footer>
+        </section>
+
+    </div>
 </div>
-
-<hr>
-<hr>
-<div class="main-grid">
-<% if @user == current_user %>
-
-<% @user_books.each do |b| %>
-<div class="prof-grid">
-  <p><%= b.title %></p>
-  <p><%= b.author %></p>
-  <%=b.description.truncate(10)%> <br>
-
-  <p><%= image_tag(b.avatar) if b.avatar.attached?%></p>
-  <p><a href="/books/<%=b.id%>">VIEW BOOK</a></p>
-
-  <% end %>
-</div>
-
-</div>
-
-
-
-
-
-<% else %>
-<div class="main-grid">
-<% books = Book.where(user_id: @user.id)%>
-<% books.each do |b| %>
-<div class="prof-grid">
-  <p><%= b.title %></p>
-  <p><%= b.author %></p>
-  <%=b.description.truncate(10)%> <br>
-
-  <p><%= image_tag(b.avatar) if b.avatar.attached?%></p>
-  <p><a href="/books/<%=b.id%>">VIEW BOOK</a></p>
-</div>
-</div>
-  <% end %>
-
-<%end%>
