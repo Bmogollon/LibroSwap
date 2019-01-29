@@ -20,6 +20,7 @@ class BooksController < ApplicationController
 
   def show
     @book=Book.find(params[:id])
+    @related_posts = Book.where(category: @book.category_id)
   end
 
   def edit

@@ -1,2 +1,24 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<%book = Book.where(category_id: @categories.id)%>
+  <%if !book.empty?%>
+  <h1 class="center"><%=@categories.name%></h1>
+
+  <%book.reverse.each do |book|%>
+  <div class="book">
+    <div>
+      <a href="<%=book_path(book.id)%>">
+      <%=book.avatar.attachment.nil? ? content_tag(:div, "", class: "book-default"): image_tag(book.avatar, class: "books-img")%>
+    </a>
+    </div>
+    <div class="description center">
+      <a class="heading" href="<%=book_path(book.id)%>"><%=book.title%></a> <br>
+      <a href="/users/<%= book.user.id %>"><strong><%=book.user.first_name.capitalize %></strong></a> <br>
+      <p><%=book.description.truncate(100)%></p>
+      <p>
+      <%= link_to 'Read More', book_path(book.id), class: "btn btn-primary"%>
+      </p>
+  </div>
+  <%end%>
+  <%else%>
+</div>
+  <h1 class="center">There are no books in this category</h1>
+  <%end%>
