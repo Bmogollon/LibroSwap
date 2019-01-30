@@ -12,17 +12,20 @@
 
   <body>
 
+    <div class="notebook">
+      <div class="left">
+        <div class="page-inner" >
 
 
 
-    
+          <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
 
-    <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-  </div>
-  <%= yield %>
-
+          <%= yield %>
+        </div>
+      </div>
+      </div>
 
   </body>
 </html>

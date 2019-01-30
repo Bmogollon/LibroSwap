@@ -1,13 +1,11 @@
-<h1>My Books</h1>
+<h1>Here Are My Books For Trading</h1>
 
 
+<a href="/users/<%= @book.user.id %>"><strong><%=@book.user.first_name.capitalize %></strong></a> <br>
 
-
-      <p><%= @book.author %></p><hr>
-      <p><%= @book.title %></p><hr>
-      <p><%= @book.description %></p><hr>
+      <p><%= @book.author %></p>
+      <p><%= @book.title %></p>
+      <p><%= @book.description %></p>
     <%= image_tag(@book.avatar) if @book.avatar.attached? %>
 
-
-
-    <%= link_to 'Edit Book', edit_book_path %>
+    <%= link_to 'Edit Book', edit_book_path%>

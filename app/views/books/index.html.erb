@@ -2,6 +2,7 @@
 <%=link_to "Profile", user_path(session[:user_id]) %>
 
 <% @books.each do |b| %>
+
   <p><%= b.title %></p>
   <p><%= b.author %></p>
   <%=b.description.truncate(10)%> <br>

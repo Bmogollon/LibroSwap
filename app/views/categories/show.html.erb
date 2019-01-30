@@ -3,22 +3,22 @@
   <h1 class="center"><%=@categories.name%></h1>
 
   <%book.reverse.each do |book|%>
-  <div class="book">
     <div>
       <a href="<%=book_path(book.id)%>">
-      <%=book.avatar.attachment.nil? ? content_tag(:div, "", class: "book-default"): image_tag(book.avatar, class: "books-img")%>
+      <%=book.avatar.attachment.nil? ? content_tag(:div, "", class: "book-default"): image_tag(book.avatar)%>
     </a>
     </div>
-    <div class="description center">
-      <a class="heading" href="<%=book_path(book.id)%>"><%=book.title%></a> <br>
-      <a href="/users/<%= book.user.id %>"><strong><%=book.user.first_name.capitalize %></strong></a> <br>
+    <a href="/users/<%= book.user.id %>"><strong><%=book.user.first_name.capitalize %></strong></a> <br>
+    <p ><%=book.author%></p>
+      <p><%=book.title%></p>
       <p><%=book.description.truncate(100)%></p>
       <p>
-      <%= link_to 'Read More', book_path(book.id), class: "btn btn-primary"%>
+      <%= link_to 'Read More', book_path(book.id)%>
       </p>
-  </div>
-  <%end%>
-  <%else%>
+  <% end %>
 </div>
-  <h1 class="center">There are no books in this category</h1>
+  <% else %>
+
+
+  <h2>There are no books currently 😞</h2>
   <%end%>

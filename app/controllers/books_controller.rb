@@ -9,7 +9,7 @@ class BooksController < ApplicationController
       @user = User.find(session[:user_id])
       @user.books << @book
       @book.save
-      redirect_to @book
+      redirect_to @user
     end
   end
 
@@ -42,7 +42,13 @@ def update
   end
 end
 
-
+def destroy
+  @book = Book.find(params[:id])
+  @book.destroy
+  respond_to do |format|
+    format.js
+  end
+end
 private
 
 def book_params

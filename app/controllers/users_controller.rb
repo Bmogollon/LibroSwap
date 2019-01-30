@@ -14,16 +14,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    # if logged_in?
       @user = User.all
-    # else
-    #   redirect_to root_path
-    # end
+
   end
 
   def show
     @user = User.find(params[:id])
     @user_books = Book.where(user_id: @user)
+    render :layout => false
   end
 
 
@@ -42,6 +40,9 @@ class UsersController < ApplicationController
     end
 
   end
+
+
+
 
   private
 

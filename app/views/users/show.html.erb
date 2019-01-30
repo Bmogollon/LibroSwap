@@ -1,42 +1,143 @@
-<div id="wrapper">
-    <div id="container">
+<style media="screen">
+  body {background: rgb(225, 228, 232)}
 
-        <section class="open-book">
-            <header>
-                <h1>Libro Swap</h1>
-                <h6>Bonny Mogollon</h6>
-            </header>
-            <article>
-                <h2 class="chapter-title">LibroSwap</h2>
+  img{
+    height: 200px;
+    width: 200px;
+  }
+  /** Notebook Base **/
+  .notebook {
+    position: absolute;
+    width: 900px;
+    height:600px;
+    top: 30%;
+     left: 35%;
+    margin: -175px 0 0 -250px;
+
+    background-color: #444;
+    background-image:
+      -webkit-repeating-radial-gradient(
+        center center,
+        rgba(0,0,0,.5),
+        rgba(0,0,0,.5) 2px,
+        transparent 2px,
+        transparent 100%
+      );
+    background-image:
+      repeating-radial-gradient(
+        center center,
+        rgba(0,0,0,.5),
+        rgba(0,0,0,.5) 2px,
+        transparent 2px,
+        transparent 100%
+      );
+    background-size: 4px 4px;
+
+    border-radius: 15px;
+    box-shadow:
+      inset 2px 2px 2px rgba(255,255,255,.2),
+      2px 2px 3px rgba(0,0,0,.2);
+  }
+
+  /** Left Page **/
+  .left {
+    position: absolute;
+    left: 10px; right: 50%;
+    top: 10px; bottom: 10px;
+
+    background: rgb(247, 246, 212);
+
+    border-radius: 10px 0 0 10px;
+    box-shadow:
+      inset -10px 0 30px -10px rgba(0,0,0,.3),
+      -2px 2px 1px rgba(0,0,0,.8);
+  }
+
+  /** Right Page **/
+  .right {
+    position: absolute;
+    left: 50%; right: 10px;
+    top: 10px; bottom: 10px;
+    background: rgb(247, 246, 212);
+
+    border-radius: 0 10px 10px 0;
+    box-shadow:
+      inset 10px 0 30px -10px rgba(0,0,0,.3),
+      2px 2px 1px rgba(0,0,0,.8);
+  }
+
+  /** Page inner **/
+  .page-inner {
+    position: absolute;
+    top: 30px; bottom: 20px;
+    left: 15px; right: 15px;
+    outline: none;
+    overflow: scroll;
+
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      transparent 19px,
+      rgba(0,0,0,.2),
+      rgba(0,0,0,.2) 1px
+    );
+    background-size: 100% 20px;
+    box-shadow:
+      0 -1px 0 rgba(0,0,0,0.2),
+      0 -5px 0 rgb(247, 246, 212),
+      0 -6px 0 rgba(0,0,0,0.4);
+
+    font: 11px/20px 'Courgette';
+    color: #555;
+    text-align: left;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+</style>
+<div class="notebook">
+  <div class="left">
+    <div class="page-inner" >
 
 
-                <%= image_tag(@user.avatar) if @user.avatar.attached?%>
+        <h1> Welcome <%= @user.first_name %> </h1>
+
+        <%= image_tag(@user.avatar) if @user.avatar.attached?%>
+
+        <h3>First Name: <%= @user.first_name %></h3> <br>
+        <h3>Last Name: <%= @user.last_name %></h3> <br>
+        <h3>Email: <%= @user.email %></h3><br>
+
+        <% if @user == current_user %>
+
+        <%= link_to 'Edit Profile', edit_user_path %>
+          <%= link_to 'categories', categories_path %>
+        <%= link_to 'create book', new_book_path %>
+        <%= link_to 'View Chats', user_chats_path(current_user) %>
+        <%= link_to 'Home', root_path %>
+
+
+        <%end%>
+
+
+
+    </div>
+  </div>
+  <div class="right">
+    <div class="page-inner" >
 
 
 
 
-                <h1> Welcome <%= @user.first_name %> </h1>
 
 
-                <h3>First Name: <%= @user.first_name %></h3> <br>
-                <h3>Last Name: <%= @user.last_name %></h3> <br>
-                <h3>Email: <%= @user.email %></h3><br>
 
-                <% if @user == current_user %>
-
-                <%= link_to 'Edit Profile', edit_user_path %>
-                <%= link_to 'Log Out', logout_path, method: :delete %>
-                <%= link_to 'create book', new_book_path %>
-                <%= link_to 'View Chats', user_chats_path(current_user) %>
-
-                <%end%>
-
-
-                <hr>
-                <hr>
                 <% if @user == current_user %>
 
                 <% @user_books.each do |b| %>
+
+
                 <div class="main-grid">
                     Book: <%= b.title %><br>
                     Author:  <%= b.author %><br>
@@ -45,10 +146,11 @@
                       <%= image_tag(b.avatar) if b.avatar.attached?%>
 
                     </div>
-
-                    <a href="/books/<%=b.id%>">VIEW BOOK</a>
+                    <a href="/books/<%=b.id%>">VIew BOok</a>
 
                   </div>
+
+
                 <% end %>
 
 
@@ -61,27 +163,20 @@
 
                   <% books.each do |b| %>
                   <div class="main-grid">
+                    <%= image_tag(b.avatar) if b.avatar.attached?%>
                     Book:  <%= b.title %><br>
                     Author:  <%= b.author %><br>
                     Description:  <%=b.description.truncate(10)%> <br>
 
-                    <%= image_tag(b.avatar) if b.avatar.attached?%>
-                    <a href="/books/<%=b.id%>">VIEW BOOK</a>
+
+
+
 
                   </div>
                 <% end %>
                 <%end%>
 
 
-              </article>
-
-            <footer>
-                <ol id="page-numbers">
-                    <li>1</li>
-                    <li>2</li>
-                </ol>
-            </footer>
-        </section>
-
-    </div>
-</div>
+              </div>
+            </div>
+          </div>

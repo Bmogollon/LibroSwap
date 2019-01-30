@@ -1,15 +1,12 @@
 <h1 class="category-hero-text">All Categories</h1>
-<div class="category-container">
 
-</div>
 
-<div class="grid-category-container">
+
+
   <% @categories = Category.all %>
-  <% @categories.each do |c| %>
-  <div class="grid-category-columns">
-    <a href="categories/<%= c.id %>" class="category-names-atag">
-    <%= c.name %>
+  <% @categories.each do |catag| %>
+    <a href="categories/<%= catag.id %>">
+    <%= catag.name %>
   </a>
-</div>
+
 <% end %>
-</div>
