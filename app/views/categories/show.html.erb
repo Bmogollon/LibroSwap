@@ -1,10 +1,16 @@
-
+<style>
+  .cont-img img{
+    height:50px;
+    width:50px;
+  }
+</style>
 <%book = Book.where(category_id: @categories.id)%>
   <%if !book.empty?%>
   <h1 class="center"><%=@categories.name%></h1>
 
   <%book.reverse.each do |book|%>
   <div class="sticky">
+    <div class="cont-img">
       <a href="<%=book_path(book.id)%>">
       <%=book.avatar.attachment.nil? ? content_tag(:div, "", class: "book-default"): image_tag(book.avatar)%>
     </a>
@@ -13,8 +19,10 @@
       <p><%=book.title%></p>
       <p><%=book.description.truncate(40)%></p>
       <p>
-      <%= link_to 'Read More', book_path(book.id)%>
-      <%= link_to("Contact User", user_chats_path(current_user, :other_user => book.user.id, :book => book.id), method: :book) %>
+      <%= link_to 'View More', book_path(book.id)%>
+        <%= link_to(image_tag("/assets/text.png"), user_chats_path(current_user, :other_user => book.user.id, :book => book.id), method: :book) %>
+
+      </div>
       <p><%= book.likes.count %> <%= (book.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     </div>
   <% end %>

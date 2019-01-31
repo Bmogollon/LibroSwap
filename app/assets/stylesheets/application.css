@@ -46,7 +46,13 @@ width:130px;
 
 
 
+ul {
+  list-style-type: none;
+}
+a:visited { t
+  text-decoration: none; color:black;
 
+ }
 
 
 /* ******************************************************************************* */
@@ -169,33 +175,33 @@ width:130px;
 
 #home {
   top: 20px;
-background-image: url(/assets/like.png);
+background-image: url(/assets/tape.png);
 background-size: cover;
 }
 
 #profile {
   top: 80px;
-background-image: url(/assets/like.png);
+background-image: url(/assets/tape.png);
 background-size: cover;
 }
 
-#messages {
+#mymessage {
   top: 140px;
-background-image: url(/assets/like.png);
+background-image: url(/assets/tape.png);
 background-size: cover;
 
 }
 
 #categories {
   top: 200px;
-background-image: url(/assets/like.png);
+background-image: url(/assets/tape.png);
 background-size: cover;
 
 }
 
 #lbook {
   top: 260px;
-background-image: url(/assets/like.png);
+background-image: url(/assets/tape.png);
 background-size: cover;
 
 }
@@ -248,5 +254,21 @@ width:100px
 
 .book-show p{
   display: inline-block;
+
+}
+
+
+/* ******************************************* */
+/* Chatting */
+
+
+
+
+/* ************************************************* */
+.cate-grid{
+display: grid;
+text-align: center;
+font-weight: bold;
+font: 15px/20px 'Courgette';
 
 }

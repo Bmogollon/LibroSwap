@@ -91,7 +91,6 @@
   }
 
 
-
   #mySidenav a {
     position: absolute;
     left: -150px;
@@ -100,7 +99,7 @@
     width: 170px;
     text-decoration: none;
     font-size: 20px;
-    text-align:center;
+    text-align: center;
     color: black;
     border-radius: 0 5px 5px 0;
   }
@@ -111,34 +110,36 @@
 
   #home {
     top: 20px;
-    background-image: url(/assets/like.png);
-    background-size: cover;
-
+  background-image: url(/assets/tape.png);
+  background-size: cover;
   }
 
   #profile {
     top: 80px;
-    background-image: url(/assets/like.png);
-    background-size: cover;
-}
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+  }
 
-    #messages {
-      top: 140px;
-      background-image: url(/assets/like.png);
-      background-size: cover;
-    }
+  #mymessage {
+    top: 140px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
 
-    #categories {
-      top: 200px;
-      background-image: url(/assets/like.png);
-      background-size: cover;
-    }
+  }
 
-    #lbook {
-      top: 260px;
-      background-image: url(/assets/like.png);
-      background-size: cover;
-    }
+  #categories {
+    top: 200px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+
+  }
+
+  #lbook {
+    top: 260px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+
+  }
 
 
 
@@ -151,7 +152,7 @@
       border-top-right-radius: 10px 100px;
       border-bottom-right-radius: 10px 100px;
       border-top-left-radius: 5px 50px;
-      border-bottom-left-radius: 5px 50px;
+      border-bottom-left-radius: 35px 50px;
       box-shadow: 6px 6px 10px 2px #999;
       margin-top: 20px;
       position: relative;
@@ -183,6 +184,11 @@
       width:50px
     }
 
+    .prof-img img{
+      height:50px;
+      width:50px;
+    }
+
   </style>
 
 
@@ -203,13 +209,11 @@
         <h3>Email: <%= @user.email %></h3><br>
 
         <% if @user == current_user %>
+<div class="prof-img">
 
-        <%= link_to 'Edit Profile', edit_user_path %>
-        <%= link_to 'categories', categories_path %>
-        <%= link_to 'My Messages', user_chats_path(session[:user_id]) %>
-        <%= link_to 'create book', new_book_path %>
-        <%= link_to 'Log Out', logout_path, method: :delete %>
-        <%= link_to 'Home', root_path %>
+  <a href="/users/<%=@user.id%>/edit" > <img src="/assets/profile.png"></a>
+      <%= link_to(image_tag("/assets/log.png"), logout_path, method: :delete) %>
+    </div>
 
 
     <%end%>
@@ -236,8 +240,8 @@
           </div>
             Description:  <%=b.description.truncate(10)%> <br>
               <p><%= b.likes.count %> <%= (b.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-          <a href="/books/<%=b.id%>" > <img src="/assets/notebook.png"></a>
-          <%= link_to 'Delete', user_path(b.id), method: :delete, :remote => true %>
+          <a href="/books/<%=b.id%>" > <img src="/assets/book.png"></a>
+          <%= link_to(image_tag("/assets/delete.png"), user_path(b.id), method: :delete, :remote => true) %>
           </div>
           </div>
 

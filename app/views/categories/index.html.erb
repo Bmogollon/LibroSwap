@@ -1,12 +1,17 @@
+
+
 <h1 class="category-hero-text">All Categories</h1>
 
+<div class="cate-grid">
 
 
 
   <% @categories = Category.all %>
   <% @categories.each do |catag| %>
-    <a href="categories/<%= catag.id %>">
+    <a  style="text-decoration:none"
+ href="categories/<%= catag.id %>">
     <%= catag.name %>
   </a>
 
 <% end %>
+</div>

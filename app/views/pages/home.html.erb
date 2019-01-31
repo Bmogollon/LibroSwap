@@ -80,69 +80,84 @@
   }
 
 
-    #mySidenav a {
-      position: absolute;
-      left: -150px;
-      transition: 0.3s;
-      padding: 15px;
-      width: 170px;
-      text-decoration: none;
-      font-size: 20px;
-      text-align:center;
-      color: black;
-      border-radius: 0 5px 5px 0;
-    }
-
-    #mySidenav a:hover {
-      left: 0;
-    }
-
-    #home {
-      top: 20px;
-      background-image: url(/assets/like.png);
-      background-size: cover;
-
-    }
-
-    #profile {
-      top: 80px;
-      background-image: url(/assets/like.png);
-      background-size: cover;
+  #mySidenav a {
+    position: absolute;
+    left: -150px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 170px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    border-radius: 0 5px 5px 0;
   }
 
-      #messages {
-        top: 140px;
-        background-image: url(/assets/like.png);
+  #mySidenav a:hover {
+    left: 0;
+  }
+
+  #home {
+    top: 20px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+  }
+
+  #profile {
+    top: 80px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+  }
+
+  #mymessage {
+    top: 140px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+
+  }
+
+  #categories {
+    top: 200px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+
+  }
+
+  #lbook {
+    top: 260px;
+  background-image: url(/assets/tape.png);
+  background-size: cover;
+
+  }
+
+
+      .sticky {
+        box-sizing: border-box;
+        height: 350px;
+        width: 300px;
+        background: linear-gradient(to bottom,  #feeb8e 0%, #ffefa1 100%);
+        padding: 25px;
+        border-top-right-radius: 10px 100px;
+        border-bottom-right-radius: 10px 100px;
+        border-top-left-radius: 5px 50px;
+        border-bottom-left-radius: 5px 50px;
+        box-shadow: 6px 6px 10px 2px #999;
+        margin-top: 20px;
+        position: relative;
+        transform: translate(25%, -1%)
+      }
+      .sticky:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 35px;
+        background-image: url(https://dk7jqzmygmr3q.cloudfront.net/ml/neducatio/5b633eca-5c8f-4d4b-8ce0-cf9618e9aec6.image?v=1&type=png);
         background-size: cover;
       }
 
-      #categories {
-        top: 200px;
-        background-image: url(/assets/like.png);
-        background-size: cover;
-      }
-
-      #lbook {
-        top: 260px;
-        background-image: url(/assets/like.png);
-        background-size: cover;
-      }
-
-      .about{
-        display: block;
-      margin:auto;
-      box-shadow: rgba(0,0,0,0.5) 0px 3px 20px;
-      background:white;
-      background-image: linear-gradient(white, transparent, transparent);
-      width:340px;
-      height: 200px;
-      margin:0;
-      position: relative;
-      top:30%;
-      left:45%;
-      transform: translate(-50%, -50%);
-
-    }
     .agreement{
     display: block;
     margin:auto;
@@ -166,6 +181,12 @@
   ::-webkit-scrollbar {
     display: none;
   }
+  h4{
+    font-size:15px;
+    font-weight:bold;
+    padding:16%;
+
+  }
 </style>
 <% if logged_in? %>
 <%= render 'layouts/sidenav'%>
@@ -173,7 +194,7 @@
 <div class="notebook">
 <div class="left">
   <div class="page-inner" >
-    <div class="about">
+    <div class="sticky">
       <h2>About Us:</h2>
       <p>We are a trading book company to help student's trade books that they don't need, this company helps students with financial problems and that are not looking to spend money buying book for classes</p>
     </div>
@@ -182,7 +203,7 @@
 </div>
 <div class="right">
   <div class="page-inner" >
-    <div class="Agreement">
+    <div class="sticky">
       <h2>Agreement:</h2>
       <p>Before Signing up you must have to agree with our policy and know that we don't tolorate any bad behaviors on our website</p>
       <p>If you trade a book and don't recieve the right book and we are contact by the user we will terminate your account if our record match the report</p>
@@ -199,23 +220,24 @@
 <div class="notebook">
 <div class="left">
   <div class="page-inner" >
-    <div class="about">
+    <div class="sticky">
       <h2>About Us:</h2>
       <p>We are a trading book company to help student's trade books that they don't need, this company helps students with financial problems and that are not looking to spend money buying book for classes</p>
     </div>
 
+    <h4>  <%= link_to 'Log in', login_path %><br>
+    New Admin? <%= link_to "Sign up now!", new_user_path %></h4>
 </div>
-<%= link_to 'Log in', login_path %>
+
 </div>
 <div class="right">
   <div class="page-inner" >
-    <div class="Agreement">
+    <div class="sticky">
       <h2>Agreement:</h2>
       <p>Before Signing up you must have to agree with our policy and know that we don't tolorate any bad behaviors on our website</p>
       <p>If you trade a book and don't recieve the right book and we are contact by the user we will terminate your account if our record match the report</p>
 
     </div>
-
 
     </div>
     </div>
