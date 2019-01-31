@@ -10,22 +10,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= render 'layouts/sidenav'%>
   <body>
 
     <div class="notebook">
       <div class="left">
         <div class="page-inner" >
 
-
-
           <% flash.each do |key, value| %>
           <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
-
           <%= yield %>
-        </div>
-      </div>
+
       </div>
 
+    </div>
+  </div>
   </body>
 </html>

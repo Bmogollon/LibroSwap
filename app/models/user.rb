@@ -4,7 +4,11 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, :uniqueness => { :case_sensitive => false }
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }, :on => :create
   has_one_attached :avatar
+  validates :agreement, presence: true
   has_many :books
+
+
+
   has_secure_password
 
 

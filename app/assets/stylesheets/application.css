@@ -17,8 +17,10 @@
 
 
 body{
-  background:rgb(196, 232, 230);
-  color: #e5e5e5;
+  background:rgba(110, 170, 167, 0.53);
+
+
+  /* color: #e5e5e5; */
   margin: 0;
 }
 
@@ -35,7 +37,7 @@ img{
 .main-grid{
   display: grid;
 grid-template-columns: auto auto auto;
-border: 1px solid rgba(0, 0, 0, 0.8);
+border: 1px dotted rgba(0, 0, 0, 0.8);
 }
 .img img{
 height: 130px;
@@ -45,8 +47,35 @@ width:130px;
 
 
 
+.container{
+position: absolute;
+  top: 62.9%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+}
+
+.like, .dislike {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+}
+.qty1, .qty2 {
+    border: none;
+    width:25px;
+    background: transparent;
+}
+
 /* ******************************************************************************* */
-body {background: rgb(225, 228, 232)}
+
 
 /** Notebook Base **/
 .notebook {
@@ -138,3 +167,6 @@ body {background: rgb(225, 228, 232)}
 ::-webkit-scrollbar {
   display: none;
 }
+
+/* ********************************************** */
+/* sidenav */

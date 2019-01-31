@@ -1,4 +1,66 @@
-<div id="login" class="login-form">
+<style>
+  body{
+    background:#1d1f20;
+    margin: 0;
+  }
+
+h1{
+  text-align:center;
+  color:white;
+}
+
+  .left {
+    position: absolute;
+    left: 35%;
+    right: 50%;
+    top: 50px;
+    bottom: 10px;
+    width: 500px;
+    height:600px;
+    background: rgb(247, 246, 212);
+
+  }
+
+  .page-inner {
+    position: absolute;
+    top: 30px;
+     bottom: 20px;
+    left: 47px;
+    right: 15px;
+    outline: none;
+
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      transparent 19px,
+      rgba(0,0,0,.2),
+      rgba(0,0,0,.2) 1px
+    );
+    background-size: 100% 20px;
+    box-shadow:
+      0 -1px 0 rgba(0,0,0,0.2),
+      0 -5px 0 rgb(247, 246, 212),
+      0 -6px 0 rgba(0,0,0,0.4);
+
+    font: 11px/20px 'Courgette';
+    color: #555;
+    text-align: left;
+  }
+  .left::before {
+  content: '';
+  position: absolute;
+  left: 45px;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,0,0,0.4);
+}
+
+</style>
+<h1>LibroSwap</h1>
+
+  <div class="left">
+    <div class="page-inner" >
+      <div id="login" class="login-form">
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -16,6 +78,4 @@
     <%= link_to 'Sign Up', new_user_path %>
 
   </div>
-</div>
-
 </div>

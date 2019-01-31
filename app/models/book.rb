@@ -5,4 +5,7 @@ class Book < ApplicationRecord
   has_one_attached :avatar
   belongs_to :user, optional: true
    belongs_to :category, optional: true
+
+
+
 end

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    render :layout => false
   end
 
 
@@ -10,7 +11,9 @@ class UsersController < ApplicationController
       @user.save
       log_in @user
       redirect_to @user
+
     end
+
   end
 
   def index
@@ -47,6 +50,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :agreement,:avatar)
   end
 end

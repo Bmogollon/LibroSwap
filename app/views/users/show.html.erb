@@ -1,6 +1,8 @@
-<style media="screen">
-  body {background: rgb(225, 228, 232)}
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+<style>
+
+  body {background: rgb(225, 228, 232)}
   img{
     height: 200px;
     width: 200px;
@@ -13,7 +15,6 @@
     top: 30%;
      left: 35%;
     margin: -175px 0 0 -250px;
-
     background-color: #444;
     background-image:
       -webkit-repeating-radial-gradient(
@@ -32,40 +33,33 @@
         transparent 100%
       );
     background-size: 4px 4px;
-
     border-radius: 15px;
     box-shadow:
       inset 2px 2px 2px rgba(255,255,255,.2),
       2px 2px 3px rgba(0,0,0,.2);
   }
-
   /** Left Page **/
   .left {
     position: absolute;
     left: 10px; right: 50%;
     top: 10px; bottom: 10px;
-
     background: rgb(247, 246, 212);
-
     border-radius: 10px 0 0 10px;
     box-shadow:
       inset -10px 0 30px -10px rgba(0,0,0,.3),
       -2px 2px 1px rgba(0,0,0,.8);
   }
-
   /** Right Page **/
   .right {
     position: absolute;
     left: 50%; right: 10px;
     top: 10px; bottom: 10px;
     background: rgb(247, 246, 212);
-
     border-radius: 0 10px 10px 0;
     box-shadow:
       inset 10px 0 30px -10px rgba(0,0,0,.3),
       2px 2px 1px rgba(0,0,0,.8);
   }
-
   /** Page inner **/
   .page-inner {
     position: absolute;
@@ -73,7 +67,6 @@
     left: 15px; right: 15px;
     outline: none;
     overflow: scroll;
-
     background: linear-gradient(
       to bottom,
       transparent,
@@ -86,7 +79,6 @@
       0 -1px 0 rgba(0,0,0,0.2),
       0 -5px 0 rgb(247, 246, 212),
       0 -6px 0 rgba(0,0,0,0.4);
-
     font: 11px/20px 'Courgette';
     color: #555;
     text-align: left;
@@ -95,16 +87,63 @@
     display: none;
   }
 
+
+
+  .container{
+  position: absolute;
+    top: 62.9%;
+    left: 63%;
+    transform: translate(-50%, -50%);
+  }
+
+  .like, .dislike {
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.428571429;
+      border-radius: 4px;
+  }
+  .qty1 {
+      border: none;
+      width:25px;
+      background: transparent;
+  }
+
 </style>
+
+
+  <%= render 'layouts/sidenav'%>
+
+<script src="https://use.fontawesome.com/2903eb4599.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <div class="notebook">
   <div class="left">
     <div class="page-inner" >
-
 
         <h1> Welcome <%= @user.first_name %> </h1>
 
         <%= image_tag(@user.avatar) if @user.avatar.attached?%>
 
+
+
+<div class="container">
+    <a class="like"><i class="fa fa-thumbs-o-up"></i>
+        <input class="qty1" name="qty1" readonly="readonly" type="text" value="0" />
+    </a>
+
+  <a class="like"><i class="fa fa-thumbs-o-down"></i>
+ <input class="qty1" name="qty1" readonly="readonly" type="text" value="0" />
+    </a>
+
+
+</div>
         <h3>First Name: <%= @user.first_name %></h3> <br>
         <h3>Last Name: <%= @user.last_name %></h3> <br>
         <h3>Email: <%= @user.email %></h3><br>
@@ -113,33 +152,27 @@
 
         <%= link_to 'Edit Profile', edit_user_path %>
           <%= link_to 'categories', categories_path %>
+<%= link_to 'My Messages', user_chats_path(session[:user_id]) %>
         <%= link_to 'create book', new_book_path %>
-        <%= link_to 'View Chats', user_chats_path(current_user) %>
+            <%= link_to 'Log Out', logout_path, method: :delete %>
         <%= link_to 'Home', root_path %>
 
 
         <%end%>
+</div>
+</div>
 
 
+        <div class="right">
+        <div class="page-inner" >
 
-    </div>
-  </div>
-  <div class="right">
-    <div class="page-inner" >
-
-
-
-
-
-
-
-                <% if @user == current_user %>
+      <% if @user == current_user %>
 
                 <% @user_books.each do |b| %>
 
 
                 <div class="main-grid">
-                    Book: <%= b.title %><br>
+                    Title: <%= b.title %><br>
                     Author:  <%= b.author %><br>
                     Description:  <%=b.description.truncate(10)%> <br>
                     <div class="img">
@@ -164,19 +197,26 @@
                   <% books.each do |b| %>
                   <div class="main-grid">
                     <%= image_tag(b.avatar) if b.avatar.attached?%>
-                    Book:  <%= b.title %><br>
+                    Title:  <%= b.title %><br>
                     Author:  <%= b.author %><br>
                     Description:  <%=b.description.truncate(10)%> <br>
-
-
-
-
-
+      <a href="/books/<%=b.id%>">VIew BOok</a>
                   </div>
                 <% end %>
                 <%end%>
 
 
-              </div>
+             </div>
             </div>
           </div>
+
+          <script>
+            $(function () {
+                     $(".like").click(function () {
+                         var input = $(this).find('.qty1');
+                         input.val(parseInt(input.val())+ 1);
+
+                     });
+
+              });
+          </script>

@@ -14,6 +14,8 @@
       <p><%=book.description.truncate(100)%></p>
       <p>
       <%= link_to 'Read More', book_path(book.id)%>
+      <%= link_to("Contact User", user_chats_path(current_user, :other_user => book.user.id, :book => book.id), method: :book) %>
+
       </p>
   <% end %>
 </div>

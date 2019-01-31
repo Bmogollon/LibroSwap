@@ -1,11 +1,12 @@
-<h1>Here Are My Books For Trading</h1>
+<h1>Book:</h1>
 
 
-<a href="/users/<%= @book.user.id %>"><strong><%=@book.user.first_name.capitalize %></strong></a> <br>
 
       <p><%= @book.author %></p>
       <p><%= @book.title %></p>
       <p><%= @book.description %></p>
     <%= image_tag(@book.avatar) if @book.avatar.attached? %>
 
+            <% if session[:user_id] == @book.user_id %>
     <%= link_to 'Edit Book', edit_book_path%>
+<% end %>
