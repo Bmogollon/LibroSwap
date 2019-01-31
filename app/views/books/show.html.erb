@@ -1,12 +1,30 @@
+<div class="book-show">
+
+
 <h1>Book:</h1>
 
 
 
+<%= image_tag(@book.avatar) if @book.avatar.attached? %><br>
       <p><%= @book.author %></p>
       <p><%= @book.title %></p>
       <p><%= @book.description %></p>
-    <%= image_tag(@book.avatar) if @book.avatar.attached? %>
 
             <% if session[:user_id] == @book.user_id %>
     <%= link_to 'Edit Book', edit_book_path%>
 <% end %>
+  <%= button_to 'Like', book_likes_path(@book), method: :book%>
+<div id="book">
+  <%= link_to(image_tag("/assets/star-off.png"),user_path(@book.id), method: :delete, :remote => true) %>
+
+</div>
+
+<%= @book.likes.count %> <%= (@book.likes.count) == 1 ? 'Like' : 'Likes'%>
+
+<% pre_like = @book.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', book_like_path(@book, pre_like), method: :delete %>
+
+<% end %>
+
+</div>

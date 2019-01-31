@@ -1,14 +1,223 @@
+<style>
+  body{
+   background-image:url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiaayl6XuInornOq4LDrWJXUiMzkOlC1nnDcocebbMpAR8wqFt1Q');
+    margin: 0;
+    font: 11px/20px 'Courgette';
+
+  }
+
+  h1{
+    text-align:center;
+    color:black;
+    font-size:40px;
+    padding:1%;
+    text-align:center;
+  }
+
+  .notebook {
+    position: absolute;
+    width: 900px;
+    height:600px;
+    top: 35%;
+     left: 35%;
+    margin: -175px 0 0 -250px;
+
+      );
+    background-size: 4px 4px;
+
+    border-radius: 15px;
+    box-shadow:
+      inset 2px 2px 2px rgba(255,255,255,.2),
+      2px 2px 3px rgba(0,0,0,.2);
+  }
+
+  .left {
+    position: absolute;
+    left: 10px; right: 50%;
+    top: 10px; bottom: 10px;
+    background: rgb(247, 246, 212);
+    border-radius: 10px 0 0 10px;
+    box-shadow:
+    inset -10px 0 30px -10px rgba(0,0,0,.3),
+    -2px 2px 1px rgba(0,0,0,.8);
+  }
+  /** Right Page **/
+  .right {
+    position: absolute;
+    left: 50%; right: 10px;
+    top: 10px; bottom: 10px;
+    background: rgb(247, 246, 212);
+    border-radius: 0 10px 10px 0;
+    box-shadow:
+    inset 10px 0 30px -10px rgba(0,0,0,.3),
+    2px 2px 1px rgba(0,0,0,.8);
+  }
+  /** Page inner **/
+  .page-inner {
+    position: absolute;
+    top: 30px; bottom: 20px;
+    left: 15px; right: 15px;
+    outline: none;
+    overflow: scroll;
+    background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent 19px,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.2) 1px
+    );
+    background-size: 100% 20px;
+    box-shadow:
+    0 -1px 0 rgba(0,0,0,0.2),
+    0 -5px 0 rgb(247, 246, 212),
+    0 -6px 0 rgba(0,0,0,0.4);
+    font: 14px/20px 'Courgette';
+    color: #555;
+    text-align: left;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+
+    #mySidenav a {
+      position: absolute;
+      left: -150px;
+      transition: 0.3s;
+      padding: 15px;
+      width: 170px;
+      text-decoration: none;
+      font-size: 20px;
+      text-align:center;
+      color: black;
+      border-radius: 0 5px 5px 0;
+    }
+
+    #mySidenav a:hover {
+      left: 0;
+    }
+
+    #home {
+      top: 20px;
+      background-image: url(/assets/like.png);
+      background-size: cover;
+
+    }
+
+    #profile {
+      top: 80px;
+      background-image: url(/assets/like.png);
+      background-size: cover;
+  }
+
+      #messages {
+        top: 140px;
+        background-image: url(/assets/like.png);
+        background-size: cover;
+      }
+
+      #categories {
+        top: 200px;
+        background-image: url(/assets/like.png);
+        background-size: cover;
+      }
+
+      #lbook {
+        top: 260px;
+        background-image: url(/assets/like.png);
+        background-size: cover;
+      }
+
+      .about{
+        display: block;
+      margin:auto;
+      box-shadow: rgba(0,0,0,0.5) 0px 3px 20px;
+      background:white;
+      background-image: linear-gradient(white, transparent, transparent);
+      width:340px;
+      height: 200px;
+      margin:0;
+      position: relative;
+      top:30%;
+      left:45%;
+      transform: translate(-50%, -50%);
+
+    }
+    .agreement{
+    display: block;
+    margin:auto;
+    box-shadow: rgba(0,0,0,0.5) 0px 3px 20px;
+    background:white;
+    background-image: linear-gradient(white, transparent, transparent);
+    width:340px;
+    height: 250px;
+    margin:0;
+    position: relative;
+    top:30%;
+    left:45%;
+      overflow: scroll;
+    transform: translate(-50%, -50%);
+  }
+  p{
+    font-size:15px;
+    font-weight:bold;
+    padding:5%;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+</style>
 <% if logged_in? %>
+<%= render 'layouts/sidenav'%>
+<h1>LibroSwap</h1>
+<div class="notebook">
+<div class="left">
+  <div class="page-inner" >
+    <div class="about">
+      <h2>About Us:</h2>
+      <p>We are a trading book company to help student's trade books that they don't need, this company helps students with financial problems and that are not looking to spend money buying book for classes</p>
+    </div>
 
-<%=link_to "Profile", user_path(session[:user_id]) %>
+</div>
+</div>
+<div class="right">
+  <div class="page-inner" >
+    <div class="Agreement">
+      <h2>Agreement:</h2>
+      <p>Before Signing up you must have to agree with our policy and know that we don't tolorate any bad behaviors on our website</p>
+      <p>If you trade a book and don't recieve the right book and we are contact by the user we will terminate your account if our record match the report</p>
 
-<h1>IT BE LIKE THAT</h1>
-<p>YEEEEEEEEEEEEERRRRR</p>
-<img src="assets/ll.png">
-      <%= link_to 'Log Out', logout_path, method: :delete %>
+    </div>
+
+
+    </div>
+    </div>
+    </div>
 
 <% else %>
+<h1>LibroSwap</h1>
+<div class="notebook">
+<div class="left">
+  <div class="page-inner" >
+    <div class="about">
+      <h2>About Us:</h2>
+      <p>We are a trading book company to help student's trade books that they don't need, this company helps students with financial problems and that are not looking to spend money buying book for classes</p>
+    </div>
 
-<h1>YOU ARE NOT LOG IN</h1>
+</div>
 <%= link_to 'Log in', login_path %>
+</div>
+<div class="right">
+  <div class="page-inner" >
+    <div class="Agreement">
+      <h2>Agreement:</h2>
+      <p>Before Signing up you must have to agree with our policy and know that we don't tolorate any bad behaviors on our website</p>
+      <p>If you trade a book and don't recieve the right book and we are contact by the user we will terminate your account if our record match the report</p>
+
+    </div>
+
+
+    </div>
+    </div>
+    </div>
 <%end%>

@@ -2,7 +2,10 @@
 
 <style>
 
-  body {background: rgb(225, 228, 232)}
+  body {
+    background: rgb(225, 228, 232);
+    background-image:url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiaayl6XuInornOq4LDrWJXUiMzkOlC1nnDcocebbMpAR8wqFt1Q');
+  }
   img{
     height: 200px;
     width: 200px;
@@ -13,30 +16,30 @@
     width: 900px;
     height:600px;
     top: 30%;
-     left: 35%;
+    left: 35%;
     margin: -175px 0 0 -250px;
     background-color: #444;
     background-image:
-      -webkit-repeating-radial-gradient(
-        center center,
-        rgba(0,0,0,.5),
-        rgba(0,0,0,.5) 2px,
-        transparent 2px,
-        transparent 100%
-      );
+    -webkit-repeating-radial-gradient(
+    center center,
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.5) 2px,
+    transparent 2px,
+    transparent 100%
+    );
     background-image:
-      repeating-radial-gradient(
-        center center,
-        rgba(0,0,0,.5),
-        rgba(0,0,0,.5) 2px,
-        transparent 2px,
-        transparent 100%
-      );
+    repeating-radial-gradient(
+    center center,
+    rgba(0,0,0,.5),
+    rgba(0,0,0,.5) 2px,
+    transparent 2px,
+    transparent 100%
+    );
     background-size: 4px 4px;
     border-radius: 15px;
     box-shadow:
-      inset 2px 2px 2px rgba(255,255,255,.2),
-      2px 2px 3px rgba(0,0,0,.2);
+    inset 2px 2px 2px rgba(255,255,255,.2),
+    2px 2px 3px rgba(0,0,0,.2);
   }
   /** Left Page **/
   .left {
@@ -46,8 +49,8 @@
     background: rgb(247, 246, 212);
     border-radius: 10px 0 0 10px;
     box-shadow:
-      inset -10px 0 30px -10px rgba(0,0,0,.3),
-      -2px 2px 1px rgba(0,0,0,.8);
+    inset -10px 0 30px -10px rgba(0,0,0,.3),
+    -2px 2px 1px rgba(0,0,0,.8);
   }
   /** Right Page **/
   .right {
@@ -57,8 +60,8 @@
     background: rgb(247, 246, 212);
     border-radius: 0 10px 10px 0;
     box-shadow:
-      inset 10px 0 30px -10px rgba(0,0,0,.3),
-      2px 2px 1px rgba(0,0,0,.8);
+    inset 10px 0 30px -10px rgba(0,0,0,.3),
+    2px 2px 1px rgba(0,0,0,.8);
   }
   /** Page inner **/
   .page-inner {
@@ -68,18 +71,18 @@
     outline: none;
     overflow: scroll;
     background: linear-gradient(
-      to bottom,
-      transparent,
-      transparent 19px,
-      rgba(0,0,0,.2),
-      rgba(0,0,0,.2) 1px
+    to bottom,
+    transparent,
+    transparent 19px,
+    rgba(0,0,0,.2),
+    rgba(0,0,0,.2) 1px
     );
     background-size: 100% 20px;
     box-shadow:
-      0 -1px 0 rgba(0,0,0,0.2),
-      0 -5px 0 rgb(247, 246, 212),
-      0 -6px 0 rgba(0,0,0,0.4);
-    font: 11px/20px 'Courgette';
+    0 -1px 0 rgba(0,0,0,0.2),
+    0 -5px 0 rgb(247, 246, 212),
+    0 -6px 0 rgba(0,0,0,0.4);
+    font: 14px/20px 'Courgette';
     color: #555;
     text-align: left;
   }
@@ -89,43 +92,105 @@
 
 
 
-  .container{
-  position: absolute;
-    top: 62.9%;
-    left: 63%;
-    transform: translate(-50%, -50%);
+  #mySidenav a {
+    position: absolute;
+    left: -150px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 170px;
+    text-decoration: none;
+    font-size: 20px;
+    text-align:center;
+    color: black;
+    border-radius: 0 5px 5px 0;
   }
 
-  .like, .dislike {
-      display: inline-block;
-      margin-bottom: 0;
-      font-weight: normal;
-      text-align: center;
-      vertical-align: middle;
-      cursor: pointer;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      padding: 6px 12px;
-      font-size: 14px;
-      line-height: 1.428571429;
-      border-radius: 4px;
-  }
-  .qty1 {
-      border: none;
-      width:25px;
-      background: transparent;
+  #mySidenav a:hover {
+    left: 0;
   }
 
-</style>
+  #home {
+    top: 20px;
+    background-image: url(/assets/like.png);
+    background-size: cover;
+
+  }
+
+  #profile {
+    top: 80px;
+    background-image: url(/assets/like.png);
+    background-size: cover;
+}
+
+    #messages {
+      top: 140px;
+      background-image: url(/assets/like.png);
+      background-size: cover;
+    }
+
+    #categories {
+      top: 200px;
+      background-image: url(/assets/like.png);
+      background-size: cover;
+    }
+
+    #lbook {
+      top: 260px;
+      background-image: url(/assets/like.png);
+      background-size: cover;
+    }
+
+
+
+    .sticky {
+      box-sizing: border-box;
+      height: 300px;
+      width: 300px;
+      background: linear-gradient(to bottom, #feeb8e 0%, #ffefa1 100%);
+      padding: 25px;
+      border-top-right-radius: 10px 100px;
+      border-bottom-right-radius: 10px 100px;
+      border-top-left-radius: 5px 50px;
+      border-bottom-left-radius: 5px 50px;
+      box-shadow: 6px 6px 10px 2px #999;
+      margin-top: 20px;
+      position: relative;
+      transform: translate(25%, -1%)
+    }
+    .sticky:before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 35px;
+      background-image: url(https://dk7jqzmygmr3q.cloudfront.net/ml/neducatio/5b633eca-5c8f-4d4b-8ce0-cf9618e9aec6.image?v=1&type=png);
+      background-size: cover;
+    }
+    .sticky:after {
+      content: "";
+      position: absolute;
+      height: 300px;
+      width: 15px;
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+    .sticky img{
+      height:50px;
+      width:50px
+    }
+
+  </style>
 
 
   <%= render 'layouts/sidenav'%>
 
-<script src="https://use.fontawesome.com/2903eb4599.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<div class="notebook">
-  <div class="left">
-    <div class="page-inner" >
+  <div class="notebook">
+    <div class="left">
+      <div class="page-inner" >
 
         <h1> Welcome <%= @user.first_name %> </h1>
 
@@ -133,17 +198,6 @@
 
 
 
-<div class="container">
-    <a class="like"><i class="fa fa-thumbs-o-up"></i>
-        <input class="qty1" name="qty1" readonly="readonly" type="text" value="0" />
-    </a>
-
-  <a class="like"><i class="fa fa-thumbs-o-down"></i>
- <input class="qty1" name="qty1" readonly="readonly" type="text" value="0" />
-    </a>
-
-
-</div>
         <h3>First Name: <%= @user.first_name %></h3> <br>
         <h3>Last Name: <%= @user.last_name %></h3> <br>
         <h3>Email: <%= @user.email %></h3><br>
@@ -151,72 +205,68 @@
         <% if @user == current_user %>
 
         <%= link_to 'Edit Profile', edit_user_path %>
-          <%= link_to 'categories', categories_path %>
-<%= link_to 'My Messages', user_chats_path(session[:user_id]) %>
+        <%= link_to 'categories', categories_path %>
+        <%= link_to 'My Messages', user_chats_path(session[:user_id]) %>
         <%= link_to 'create book', new_book_path %>
-            <%= link_to 'Log Out', logout_path, method: :delete %>
+        <%= link_to 'Log Out', logout_path, method: :delete %>
         <%= link_to 'Home', root_path %>
 
 
-        <%end%>
+    <%end%>
+
+
+  </div>
 </div>
-</div>
+    <div class="right">
+      <div class="page-inner" >
+
+        <% if @user == current_user %>
+
+        <% @user_books.each do |b| %>
+        <div id="book-<%=b.id%>">
+
+        <div class="sticky">
 
 
-        <div class="right">
-        <div class="page-inner" >
-
-      <% if @user == current_user %>
-
-                <% @user_books.each do |b| %>
-
-
-                <div class="main-grid">
-                    Title: <%= b.title %><br>
-                    Author:  <%= b.author %><br>
-                    Description:  <%=b.description.truncate(10)%> <br>
-                    <div class="img">
-                      <%= image_tag(b.avatar) if b.avatar.attached?%>
-
-                    </div>
-                    <a href="/books/<%=b.id%>">VIew BOok</a>
-
-                  </div>
-
-
-                <% end %>
-
-
-
-
-
-
-                <% else %>
-                <% books = Book.where(user_id: @user.id)%>
-
-                  <% books.each do |b| %>
-                  <div class="main-grid">
-                    <%= image_tag(b.avatar) if b.avatar.attached?%>
-                    Title:  <%= b.title %><br>
-                    Author:  <%= b.author %><br>
-                    Description:  <%=b.description.truncate(10)%> <br>
-      <a href="/books/<%=b.id%>">VIew BOok</a>
-                  </div>
-                <% end %>
-                <%end%>
-
-
-             </div>
-            </div>
+          <div class="main-grid">
+            Title: <%= b.title %><br>
+            Author:  <%= b.author %><br>
+            <div class="img">
+            <%= image_tag(b.avatar) if b.avatar.attached?%>
+          </div>
+            Description:  <%=b.description.truncate(10)%> <br>
+              <p><%= b.likes.count %> <%= (b.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <a href="/books/<%=b.id%>" > <img src="/assets/notebook.png"></a>
+          <%= link_to 'Delete', user_path(b.id), method: :delete, :remote => true %>
+          </div>
           </div>
 
-          <script>
-            $(function () {
-                     $(".like").click(function () {
-                         var input = $(this).find('.qty1');
-                         input.val(parseInt(input.val())+ 1);
 
-                     });
+        </div>
+        <% end %>
 
-              });
-          </script>
+
+
+
+
+        <% else %>
+
+        <% books = Book.where(user_id: @user.id)%>
+
+        <% books.each do |b| %>
+        <div class="sticky">
+          <div class="main-grid">
+            <%= image_tag(b.avatar) if b.avatar.attached?%>
+            Title:  <%= b.title %><br>
+            Author:  <%= b.author %><br>
+            Description:  <%=b.description.truncate(10)%> <br>
+            <a href="/books/<%=b.id%>">VIew BOok</a>
+          </div>
+        </div>
+        <% end %>
+        <%end%>
+
+
+      </div>
+    </div>
+  </div>

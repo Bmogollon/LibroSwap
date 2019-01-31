@@ -46,6 +46,7 @@ def destroy
   @book = Book.find(params[:id])
   @book.destroy
   respond_to do |format|
+    format.html
     format.js
   end
 end

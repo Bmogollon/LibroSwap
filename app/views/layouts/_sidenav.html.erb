@@ -1,0 +1,10 @@
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="<%=root_path%>" id="home">Home</a>
+  <a href="<%=user_path(session[:user_id]) %>" id="profile">Profile</a>
+  <a href="<%=  user_chats_path(session[:user_id])%>" id="messages">Messages</a>
+  <a href=" <%= categories_path %>" id="categories">Categories</a>
+  <a href="<%=  new_book_path %>" id="lbook">List A Book</a>
+</div>

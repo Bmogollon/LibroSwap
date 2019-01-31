@@ -1,1 +1,2 @@
-$('<%= @book.id %>').fadeOut();
+var deleteitem = document.getElementById(‘book-<%=@user_books.id%>’);
+deleteitem.remove()

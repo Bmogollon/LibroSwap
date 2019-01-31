@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def new
     @user = User.new
     render :layout => false
@@ -44,6 +46,13 @@ class UsersController < ApplicationController
 
   end
 
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
 
 
 

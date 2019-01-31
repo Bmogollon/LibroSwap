@@ -11,7 +11,9 @@ resources :books
 
 
 
-
+   resources :book do
+     resources :likes
+   end
 resources :users
 get '/users/:id', to: 'users#show'
 

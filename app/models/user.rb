@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :agreement, presence: true
   has_many :books
 
+  has_many :likes, dependent: :destroy
 
 
   has_secure_password

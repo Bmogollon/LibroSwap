@@ -1,22 +1,22 @@
+
 <%book = Book.where(category_id: @categories.id)%>
   <%if !book.empty?%>
   <h1 class="center"><%=@categories.name%></h1>
 
   <%book.reverse.each do |book|%>
-    <div>
+  <div class="sticky">
       <a href="<%=book_path(book.id)%>">
       <%=book.avatar.attachment.nil? ? content_tag(:div, "", class: "book-default"): image_tag(book.avatar)%>
     </a>
-    </div>
     <a href="/users/<%= book.user.id %>"><strong><%=book.user.first_name.capitalize %></strong></a> <br>
     <p ><%=book.author%></p>
       <p><%=book.title%></p>
-      <p><%=book.description.truncate(100)%></p>
+      <p><%=book.description.truncate(40)%></p>
       <p>
       <%= link_to 'Read More', book_path(book.id)%>
       <%= link_to("Contact User", user_chats_path(current_user, :other_user => book.user.id, :book => book.id), method: :book) %>
-
-      </p>
+      <p><%= book.likes.count %> <%= (book.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    </div>
   <% end %>
 </div>
   <% else %>

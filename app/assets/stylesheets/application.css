@@ -17,7 +17,7 @@
 
 
 body{
-  background:rgba(110, 170, 167, 0.53);
+   background-image:url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiaayl6XuInornOq4LDrWJXUiMzkOlC1nnDcocebbMpAR8wqFt1Q');
 
 
   /* color: #e5e5e5; */
@@ -47,32 +47,7 @@ width:130px;
 
 
 
-.container{
-position: absolute;
-  top: 62.9%;
-  left: 63%;
-  transform: translate(-50%, -50%);
-}
 
-.like, .dislike {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.428571429;
-    border-radius: 4px;
-}
-.qty1, .qty2 {
-    border: none;
-    width:25px;
-    background: transparent;
-}
 
 /* ******************************************************************************* */
 
@@ -142,8 +117,10 @@ position: absolute;
 /** Page inner **/
 .page-inner {
   position: absolute;
-  top: 30px; bottom: 20px;
-  left: 15px; right: 15px;
+  top: 30px;
+  bottom: 20px;
+  left: 15px;
+  right: 15px;
   outline: none;
   overflow: scroll;
   background: linear-gradient(
@@ -159,7 +136,8 @@ position: absolute;
     0 -5px 0 rgb(247, 246, 212),
     0 -6px 0 rgba(0,0,0,0.4);
 
-  font: 11px/20px 'Courgette';
+  font: 14px/20px 'Courgette';
+
   color: #555;
   text-align: left;
 }
@@ -170,3 +148,105 @@ position: absolute;
 
 /* ********************************************** */
 /* sidenav */
+
+
+#mySidenav a {
+  position: absolute;
+  left: -150px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 170px;
+  text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#home {
+  top: 20px;
+background-image: url(/assets/like.png);
+background-size: cover;
+}
+
+#profile {
+  top: 80px;
+background-image: url(/assets/like.png);
+background-size: cover;
+}
+
+#messages {
+  top: 140px;
+background-image: url(/assets/like.png);
+background-size: cover;
+
+}
+
+#categories {
+  top: 200px;
+background-image: url(/assets/like.png);
+background-size: cover;
+
+}
+
+#lbook {
+  top: 260px;
+background-image: url(/assets/like.png);
+background-size: cover;
+
+}
+
+
+/* ******************************************** */
+
+
+.sticky {
+  box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+  background: linear-gradient(to bottom, #feeb8e 0%, #ffefa1 100%);
+  padding: 25px;
+  border-top-right-radius: 10px 100px;
+  border-bottom-right-radius: 10px 100px;
+  border-top-left-radius: 5px 50px;
+  border-bottom-left-radius: 5px 50px;
+  box-shadow: 6px 6px 10px 2px #999;
+  margin-top: 20px;
+  position: relative;
+    transform: translate(25%, -1%)
+}
+.sticky:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 35px;
+  background-image: url(https://dk7jqzmygmr3q.cloudfront.net/ml/neducatio/5b633eca-5c8f-4d4b-8ce0-cf9618e9aec6.image?v=1&type=png);
+  background-size: cover;
+}
+.sticky:after {
+  content: "";
+  position: absolute;
+  height: 300px;
+  width: 15px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  top: 0;
+  left: 0;
+}
+.sticky img{
+height:100px;
+width:100px
+}
+
+
+.book-show p{
+  display: inline-block;
+
+}
