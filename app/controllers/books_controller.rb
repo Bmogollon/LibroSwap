@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
   def new
+    if logged_in?
       @book = Book.new
+    else
+redirect_to root_path
+end
   end
 
   def create
@@ -15,12 +19,20 @@ class BooksController < ApplicationController
 
 
   def index
+    if logged_in?
     @books = Book.all
+  else
+redirect_to root_path
+end
   end
 
   def show
+    if logged_in?
     @book=Book.find(params[:id])
     @related_posts = Book.where(category: @book.category_id)
+  else
+redirect_to root_path
+end
   end
 
   def edit

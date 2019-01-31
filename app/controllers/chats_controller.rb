@@ -6,9 +6,14 @@ class ChatsController < ApplicationController
   before_action :require_login
 
   def index
+    if logged_in?
     chats = current_user.chats
     @existing_chats_users = current_user.existing_chats_users
+  else
+    redirect_to root_path
   end
+  end
+
   def create
     @other_user = User.find(params[:other_user])
     @chat = find_chat(@other_user) || Chat.new(identifier: SecureRandom.hex)
@@ -20,9 +25,13 @@ class ChatsController < ApplicationController
     redirect_to user_chat_path(current_user, @chat,  :other_user => @other_user.id)
   end
   def show
+    if logged_in?
     @other_user = User.find(params[:other_user])
     @chat = Chat.find_by(id: params[:id])
     @message = Message.new
+  else
+redirect_to root_path
+end
   end
   private
   def find_chat(second_user)

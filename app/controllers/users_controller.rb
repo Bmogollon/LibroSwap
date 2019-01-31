@@ -19,19 +19,30 @@ class UsersController < ApplicationController
   end
 
   def index
+    if logged_in?
       @user = User.all
-
+    else
+      redirect_to root_path
+    end
   end
 
   def show
+    if logged_in?
     @user = User.find(params[:id])
     @user_books = Book.where(user_id: @user)
     render :layout => false
+  else
+redirect_to root_path
+end
   end
 
 
   def edit
+    if logged_in?
     @user = User.find(params[:id])
+  else
+redirect_to root_path
+end
   end
 
   def update
