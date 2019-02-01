@@ -9,9 +9,6 @@ resources :books
 
    root 'pages#home'
 
-   resources :users, only:[:new, :create] do
-     resources :chats, only: [:index, :show, :create]
-   end
 
    resources :book do
      resources :likes
@@ -20,8 +17,10 @@ resources :users
 get '/users/:id', to: 'users#show'
 
 resources :messages, only:[:create]
-mount ActionCable.server => '/cable'
 
+  resources :users, only:[:new, :create] do
+   resources :chats, only: [:index, :show, :create]
+  end
 
 
 
