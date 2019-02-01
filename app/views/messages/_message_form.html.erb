@@ -6,3 +6,14 @@
 <%= f.submit 'SEND', class: "btn btn-primary"%>
 </p>
 <%end%>
+
+
+<script type="text/javascript">
+
+  received: function(data) {
+    $("#messages").removeClass('hidden')
+    $("#message_content").val('')
+    window.location.reload();
+    return $('#messages').append(this.renderMessage(data));
+  },
+</script>

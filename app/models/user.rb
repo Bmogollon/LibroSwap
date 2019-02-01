@@ -2,7 +2,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, uniqueness: true, :uniqueness => { :case_sensitive => false }
-  validates :password, presence: true, confirmation: true, length: { minimum: 6 }, :on => :create
+  validates :password, presence: true, confirmation: true, :on => :create
   has_one_attached :avatar
   validates :agreement, presence: true
   has_many :books
