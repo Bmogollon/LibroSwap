@@ -1,4 +1,8 @@
 <%=form_for message, remote: true,authenticity_token: true do |f|%>
-  <%= f.text_area :content, data: {textarea: "message"}%>
+<p>
+  <%= f.text_field :content, data: {text_field: "message"}%>
+<!-- this hidden field is for the MessagesController and Action Cable to keep track of what chat this message belongs to -->
 <%= f.hidden_field :chat_id, value: chat.id %>
+<%= f.submit 'SEND', class: "btn btn-primary"%>
+</p>
 <%end%>
