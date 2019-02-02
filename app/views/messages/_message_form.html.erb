@@ -3,6 +3,6 @@
   <%= f.text_field :content, data: {text_field: "message"}%>
 <!-- this hidden field is for the MessagesController and Action Cable to keep track of what chat this message belongs to -->
 <%= f.hidden_field :chat_id, value: chat.id %>
-<%= f.submit 'SEND', class: "btn btn-primary"%>
+<%= f.submit 'SEND'%>
 </p>
 <%end%>
