@@ -4,15 +4,13 @@ development:
 test:
   adapter: async
 
-# production:
-#   adapter: redis
+production:
+  adapter: redis
+  url: redis://redistogo:4b99b89e0e04816e73345c30adccf090@barb.redistogo.com:9838/
+  host: barb.redistogo.com
+  port: 9838
+  password: 4b99b89e0e04816e73345c30adccf090
+  inline: true
+  timeout: 1
 #   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
 #   channel_prefix: libroswap_app_production
-
-production: &production
-  :url: redis://redistogo:4b99b89e0e04816e73345c30adccf090@barb.redistogo.com:9838/
-  :host: barb.redistogo.com
-  :port: 9838
-  :password: 4b99b89e0e04816e73345c30adccf090
-  :inline: true
-  :timeout: 1
